@@ -560,6 +560,14 @@ public class TwitchClient extends Irc {
 			if (settings.getBoolean("ffz")) {
 				frankerFaceZ.requestEmotes(channel, false);
 			}
+			
+			FollowersThread ft1 = new FollowersThread(FollowersThread.Type.FOLLOWERS, api, channel.substring(1));
+			FollowersThread ft2 = new FollowersThread(FollowersThread.Type.SUBSCRIBERS, api, channel.substring(1));
+
+			ft1.start();
+			ft2.start();
+			
+			
 		} else if (!settings.getBoolean("ignoreJoinsParts")) {
 			// Another user has joined a joined channel
 			User user = userJoined(channel, nick);
@@ -569,7 +577,6 @@ public class TwitchClient extends Irc {
 			g.playSound("joinPart", channel);
 			chatLog.compact(channel, "JOIN", user);
 		}
-
 	}
 
 	@Override
