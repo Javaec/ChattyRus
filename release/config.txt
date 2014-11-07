@@ -1,0 +1,4 @@
+offset:0;
+time:1440;
+todaytext:"Sub today:";
+lasttext:"Last sub:";
