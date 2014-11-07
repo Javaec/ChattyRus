@@ -1,1 +1,1 @@
-java -jar Chatty.jar
+java -jar ChattyRus.jar

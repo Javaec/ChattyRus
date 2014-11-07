@@ -26,7 +26,7 @@ public class FontRenderer {
 		
 		try 
 		{
-			imagesource =  ImageIO.read(new File("font2.png"));
+			imagesource =  ImageIO.read(new File("font.png"));
 		} 
 		catch (IOException e) 
 		{
