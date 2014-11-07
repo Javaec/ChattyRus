@@ -37,7 +37,7 @@ public class Chatty {
      * If you compile this program yourself, you should create your own client
      * id on http://www.twitch.tv/kraken/oauth2/clients/new
      */
-    public static final String CLIENT_ID = <...>;
+    public static final String CLIENT_ID = "aumf6qdkc2wqc8adr88926u6tqix5rx";
     
     /**
      * The redirect URI for getting a token.
