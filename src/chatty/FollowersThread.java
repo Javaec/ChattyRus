@@ -7,9 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 import chatty.util.api.Follower;
 import chatty.util.api.FollowerInfo;
