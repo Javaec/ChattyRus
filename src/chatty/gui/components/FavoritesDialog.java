@@ -46,11 +46,11 @@ public class FavoritesDialog extends JDialog {
     
     private final JTextField input = new JTextField(30);
     
-    private final JButton addToFavoritesButton = new JButton("Add to favorites");
-    private final JButton removeFromFavoritesButton = new JButton("Remove selected from favorites");
-    private final JButton removeButton = new JButton("Remove selected");
-    private final JButton doneButton = new JButton("Use chosen channels");
-    private final JButton cancelButton = new JButton("Cancel");
+    private final JButton addToFavoritesButton = new JButton("Добавить в избранное");
+    private final JButton removeFromFavoritesButton = new JButton("Удалить из избранного");
+    private final JButton removeButton = new JButton("Удалить отмеченное");
+    private final JButton doneButton = new JButton("Использовать отмеченные каналы");
+    private final JButton cancelButton = new JButton("Отмена");
     
     private String doneButtonText = "";
     private String doneButtonTextOneChannel = "";
@@ -74,7 +74,7 @@ public class FavoritesDialog extends JDialog {
     
     public FavoritesDialog(MainGui main, ContextMenuListener contextMenuListener) {
         super(main);
-        setTitle("Favorites / History");
+        setTitle("Избранное / история");
         setModal(true);
         
         this.contextMenuListener = contextMenuListener;
@@ -144,10 +144,10 @@ public class FavoritesDialog extends JDialog {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         add(cancelButton, gbc);
 
-        removeFromFavoritesButton.setToolTipText("Remove selected channel(s) "
-                + "from favorites only");
-        removeButton.setToolTipText("Remove selected channel(s) from favorites "
-                + "and history");
+        removeFromFavoritesButton.setToolTipText("Удалить отмеченные каналы "
+                + "только из избранных");
+        removeButton.setToolTipText("Удалить отмеченные каналы из избранных "
+                + "и истории");
         
         
         // Button Listeners
@@ -505,7 +505,7 @@ public class FavoritesDialog extends JDialog {
          * The columns. Changing this requires adjustments of column stuff in
          * some places (e.g. sorter).
          */
-        private final String[] columns = {"Fav","Channel","Last joined"};
+        private final String[] columns = {"Избранное","Канал","Последний вход"};
         
         @Override
         public int getRowCount() {

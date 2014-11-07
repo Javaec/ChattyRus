@@ -67,51 +67,51 @@ public class DateTime {
     public static String ago2(long timePassed) {
         long seconds = timePassed / 1000;
         if (seconds < MINUTE*10) {
-            return "just now";
+            return "только что";
         }
         if (seconds < HOUR) {
-            return "recently";
+            return "недавно";
         }
         if (seconds < DAY) {
             int hours = (int)seconds / HOUR;
-            return hours+" "+(hours == 1 ? "hour" : "hours")+" ago";
+            return hours+" "+(hours == 1 ? "час" : "часов")+" назад";
         }
         int days = (int)seconds / DAY;
-        return days+" "+(days == 1 ? "day" : "days")+" ago";
+        return days+" "+(days == 1 ? "день" : "дней")+" назад";
     }
     
     public static String ago4(long time) {
         long seconds = (System.currentTimeMillis() - time) / 1000;
         if (seconds < MINUTE) {
-            return seconds+" "+(seconds == 1 ? "second" : "seconds");
+            return seconds+" "+(seconds == 1 ? "секунд" : "секунд");
         }
         if (seconds < HOUR) {
             int minutes = (int)seconds / MINUTE;
-            return minutes+" "+(minutes == 1 ? "minute" : "minutes");
+            return minutes+" "+(minutes == 1 ? "минут" : "минут");
         }
         if (seconds < DAY) {
             int hours = (int)seconds / HOUR;
-            return hours+" "+(hours == 1 ? "hour" : "hours");
+            return hours+" "+(hours == 1 ? "час" : "часов");
         }
         int days = (int)seconds / DAY;
-        return days+" "+(days == 1 ? "day" : "days");
+        return days+" "+(days == 1 ? "день" : "дней");
     }
     
     public static String ago4compact(long time) {
         long seconds = (System.currentTimeMillis() - time) / 1000;
         if (seconds < MINUTE) {
-            return seconds+"s";
+            return seconds+"с";
         }
         if (seconds < HOUR) {
             int minutes = (int)seconds / MINUTE;
-            return minutes+"m";
+            return minutes+"м";
         }
         if (seconds < DAY) {
             int hours = (int)seconds / HOUR;
-            return hours+"h";
+            return hours+"ч";
         }
         int days = (int)seconds / DAY;
-        return days+"d";
+        return days+"д";
     }
     
     public static String ago3(long time, boolean showSeconds) {
@@ -161,18 +161,18 @@ public class DateTime {
             seconds = time / 1000;
         }
         if (seconds < MINUTE) {
-            return seconds+"s";
+            return seconds+"с";
         }
         if (seconds < HOUR) {
             int s = (int)seconds % MINUTE;
             if (detailed && s > 0) {
-                return seconds / MINUTE+"m "+s+"s";
+                return seconds / MINUTE+"м "+s+"с";
             }
-            return seconds / MINUTE+"m";
+            return seconds / MINUTE+"м";
         }
         if (seconds < DAY) {
-            return seconds / HOUR+"h";
+            return seconds / HOUR+"ч";
         }
-        return seconds / DAY+"d";
+        return seconds / DAY+"д";
     }
 }

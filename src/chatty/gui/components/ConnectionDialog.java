@@ -16,15 +16,15 @@ public class ConnectionDialog extends JDialog {
 
     private final static Insets SMALL_BUTTON_INSETS = new Insets(-1, 10, -1, 10);
     
-    private final JLabel passwordLabel = new JLabel("Access token:");
+    private final JLabel passwordLabel = new JLabel("Ключ доступа:");
     private final JLabel name = new JLabel("");
     private final JTextField password = new JPasswordField(14);
-    private final JButton connect = new JButton("Connect");
-    private final JButton cancel = new JButton("Cancel");
-    private final JButton favorites = new JButton("Favorites / History");
+    private final JButton connect = new JButton("Подключение");
+    private final JButton cancel = new JButton("Отмена");
+    private final JButton favorites = new JButton("Избранное / История");
     private final JTextField channel = new JTextField(16);
-    private final JButton getToken = new JButton("Configure login..");
-    private final JCheckBox rejoinOpenChannels = new JCheckBox("Rejoin open channels");
+    private final JButton getToken = new JButton("Настройка аккаунта..");
+    private final JCheckBox rejoinOpenChannels = new JCheckBox("Переподключиться к открытым каналам");
     
     private final GridBagConstraints passwordGc = makeGbc(1,1,2,1,GridBagConstraints.WEST);
     private final GridBagConstraints passwordLabelGc = makeGbc(0,1,1,1,GridBagConstraints.WEST);
@@ -32,7 +32,7 @@ public class ConnectionDialog extends JDialog {
     private String currentUsername = "";
     
     public ConnectionDialog(MainGui owner) {
-        super(owner,"Connect",true);
+        super(owner,"Подключение",true);
         this.setResizable(false);
         setLayout(new GridBagLayout());
 
@@ -51,7 +51,7 @@ public class ConnectionDialog extends JDialog {
         GridBagConstraints gbc;
         
         // Account
-        final JLabel nameLabel = new JLabel("Account:");
+        final JLabel nameLabel = new JLabel("Аккаунт:");
         add(nameLabel, makeGbc(0,0,1,1,GridBagConstraints.EAST));
         add(name, makeGbc(1,0,2,1,GridBagConstraints.WEST));
         
@@ -83,7 +83,7 @@ public class ConnectionDialog extends JDialog {
         });
         
         // Channels and Favorites
-        final JLabel channelLabel = new JLabel("Channel:");
+        final JLabel channelLabel = new JLabel("Канал:");
         add(channelLabel, makeGbc(0,4,1,1,GridBagConstraints.EAST));
 
         gbc = makeGbc(1,4,2,1,GridBagConstraints.WEST);
@@ -190,7 +190,7 @@ public class ConnectionDialog extends JDialog {
         if (usePasswordInstead) {
             // Using password
             password.setEditable(true);
-            passwordLabel.setText("Password:");
+            passwordLabel.setText("Пароль:");
             password.setText(currentPassword);
             add(password,passwordGc);
             add(passwordLabel,passwordLabelGc);
@@ -201,11 +201,11 @@ public class ConnectionDialog extends JDialog {
             remove(passwordLabel);
             if (currentUsername.isEmpty() || currentToken.isEmpty()) {
                 name.setText("<none>");
-                getToken.setText("Create login..");
+                getToken.setText("Создать аккаунт..");
             }
             else {
                 name.setText(currentUsername);
-                getToken.setText("Configure login..");
+                getToken.setText("Настроить аккаунт..");
             }
         }
         pack();

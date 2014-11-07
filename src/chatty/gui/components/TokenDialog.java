@@ -16,28 +16,28 @@ import javax.swing.JLabel;
  */
 public class TokenDialog extends JDialog {
     
-    JLabel nameLabel = new JLabel("Account name:");
-    JLabel name = new JLabel("<no account>");
+    JLabel nameLabel = new JLabel("Аккаунт:");
+    JLabel name = new JLabel("<пусто>");
     LinkLabel accessLabel;
-    JLabel access = new JLabel("<none>");
+    JLabel access = new JLabel("<пусто>");
     
     JLabel info = new JLabel("<html><body style='width:200px'>");
-    JButton deleteToken = new JButton("Remove login");
-    JButton requestToken = new JButton("Request login data");
-    JButton verifyToken = new JButton("Verify login");
+    JButton deleteToken = new JButton("Удалить аккаунт");
+    JButton requestToken = new JButton("Запросить данные аккаунта");
+    JButton verifyToken = new JButton("Подтвердить аккаунт");
     JLabel tokenInfo = new JLabel("");
-    JButton done = new JButton("Done");
+    JButton done = new JButton("Готово");
     
     String currentUsername = "";
     String currentToken = "";
     
     public TokenDialog(MainGui owner) {
-        super(owner,"Login configuration",true);
+        super(owner,"Настройки аккаунта",true);
         this.setResizable(false);
        
         this.setLayout(new GridBagLayout());
         
-        accessLabel = new LinkLabel("Access [help:login (?)]:", owner.getLinkLabelListener());
+        accessLabel = new LinkLabel("Доступ [help:login (?)]:", owner.getLinkLabelListener());
         
         add(nameLabel, makeGridBagConstraints(0,0,1,1,GridBagConstraints.WEST));
         add(name, makeGridBagConstraints(0,1,2,1,GridBagConstraints.CENTER,new Insets(0,5,5,5)));
@@ -88,7 +88,7 @@ public class TokenDialog extends JDialog {
         this.currentUsername = username;
         this.currentToken = currentToken;
         if (currentUsername.isEmpty() || currentToken.isEmpty()) {
-            name.setText("<click below to create a login>");
+            name.setText("<клик кнопку ниже для создания аккаунта>");
         }
         else {
             name.setText(currentUsername);
@@ -102,25 +102,25 @@ public class TokenDialog extends JDialog {
         access.setVisible(!empty);
         accessLabel.setVisible(!empty);
         
-        String text = "<html><body>Chat access";
+        String text = "<html><body>Доступ к чату";
         if (user) {
-            text += "<br />Read user info";
+            text += "<br />Чтение информации о юзерах";
         }
         if (editor) {
-            text += "<br />Editor access";
+            text += "<br />Права модера";
         }
         if (commercial) {
-            text += "<br />Run commercials";
+            text += "<br />Запуск рекламы";
         }
         if (subs) {
-            text += "<br />Show subscribers";
+            text += "<br />Показывать подписчиков";
         }
         access.setText(text);
         update();
     }
     
     public void verifyingToken() {
-        setTokenInfo("Verifying login..");
+        setTokenInfo("Подтвеждение логина..");
         verifyToken.setEnabled(false);
     }
     
@@ -128,7 +128,7 @@ public class TokenDialog extends JDialog {
         setTokenInfo(result);
         verifyToken.setEnabled(true);
         if (!valid) {
-            access.setText("<none>");
+            access.setText("<пусто>");
         }
         update();
     }

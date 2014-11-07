@@ -18,7 +18,7 @@ import javax.swing.JTextField;
  */
 public class MainSettings extends SettingsPanel implements ActionListener {
     
-    private final JButton selectFontButton = new JButton("Select font");
+    private final JButton selectFontButton = new JButton("Выбрать шрифт");
     private final FontChooser fontChooser;
     private final ComboLongSetting onStart;
     private final JTextField channels;
@@ -31,18 +31,18 @@ public class MainSettings extends SettingsPanel implements ActionListener {
         
         GridBagConstraints gbc;
         
-        JPanel fontSettingsPanel = addTitledPanel("Font", 0);
-        JPanel startSettingsPanel = addTitledPanel("Startup", 1);
+        JPanel fontSettingsPanel = addTitledPanel("Шрифт", 0);
+        JPanel startSettingsPanel = addTitledPanel("Запуск", 1);
         
         /*
          * Font settings (Panel)
          */
         // Font Name
         gbc = d.makeGbc(0,0,1,1);
-        fontSettingsPanel.add(new JLabel("Font Name:"),gbc);
+        fontSettingsPanel.add(new JLabel("Название шрифта:"),gbc);
         gbc = d.makeGbc(0,1,1,1);
         gbc.anchor = GridBagConstraints.EAST;
-        fontSettingsPanel.add(new JLabel("Font Size:"),gbc);
+        fontSettingsPanel.add(new JLabel("Размер шрифта:"),gbc);
         
         // Font Size
         gbc = d.makeGbc(1,0,1,1);
@@ -59,14 +59,14 @@ public class MainSettings extends SettingsPanel implements ActionListener {
         fontSettingsPanel.add(selectFontButton,gbc);
         
         gbc = d.makeGbc(0, 0, 1, 1, GridBagConstraints.EAST);
-        startSettingsPanel.add(new JLabel("On start:"), gbc);
+        startSettingsPanel.add(new JLabel("При запуске:"), gbc);
         
         Map<Long, String> onStartDef = new LinkedHashMap<>();
-        onStartDef.put((long)0, "Do nothing");
-        onStartDef.put((long)1, "Open connect dialog");
-        onStartDef.put((long)2, "Connect and join specified channels");
-        onStartDef.put((long)3, "Connect and join previously open channels");
-        onStartDef.put((long)4, "Connect and join favorited channels");
+        onStartDef.put((long)0, "Ничего не делать");
+        onStartDef.put((long)1, "Открыть окно подключения");
+        onStartDef.put((long)2, "Подключиться к определенным каналам");
+        onStartDef.put((long)3, "Подключиться к предыдущим каналам");
+        onStartDef.put((long)4, "Подключиться к избранным каналам");
         onStart = new ComboLongSetting(onStartDef);
         onStart.addActionListener(this);
         d.addLongSetting("onStart", onStart);
@@ -74,7 +74,7 @@ public class MainSettings extends SettingsPanel implements ActionListener {
         startSettingsPanel.add(onStart, gbc);
         
         gbc = d.makeGbc(0, 1, 1, 1, GridBagConstraints.EAST);
-        startSettingsPanel.add(new JLabel("Channels:"), gbc);
+        startSettingsPanel.add(new JLabel("Каналы:"), gbc);
         
         gbc = d.makeGbc(1, 1, 1, 1, GridBagConstraints.WEST);
         channels = d.addSimpleStringSetting("autojoinChannel", 25, true);

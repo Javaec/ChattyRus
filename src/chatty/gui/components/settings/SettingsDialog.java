@@ -37,8 +37,8 @@ public class SettingsDialog extends JDialog implements ActionListener {
     
     private final Editor editor = new Editor(this);
     
-    private final JButton ok = new JButton("Save");
-    private final JButton cancel = new JButton("Cancel");
+    private final JButton ok = new JButton("Сохранить");
+    private final JButton cancel = new JButton("Отмена");
     
     private final Set<String> restartRequiredDef = new HashSet<>(Arrays.asList(
             "capitalizedNames", "ffz", "nod3d", "noddraw",
@@ -69,22 +69,22 @@ public class SettingsDialog extends JDialog implements ActionListener {
     private final UsercolorSettings usercolorSettings;
     private final ImageSettings imageSettings;
 
-    private static final String PANEL_MAIN = "Main";
-    private static final String PANEL_MESSAGES = "Messages";
-    private static final String PANEL_EMOTES = "Emoticons";
-    private static final String PANEL_IMAGES = "Usericons";
-    private static final String PANEL_COLORS = "Colors";
-    private static final String PANEL_HIGHLIGHT = "Highlight";
-    private static final String PANEL_IGNORE = "Ignore";
-    private static final String PANEL_HISTORY = "History";
-    private static final String PANEL_SOUND = "Sounds";
-    private static final String PANEL_NOTIFICATIONS = "Notifications";
-    private static final String PANEL_USERCOLORS = "Usercolors";
-    private static final String PANEL_LOG = "Logging";
-    private static final String PANEL_WINDOW = "Window";
-    private static final String PANEL_COMMANDS = "Commands";
-    private static final String PANEL_OTHER = "Other";
-    private static final String PANEL_ADVANCED = "Advanced";
+    private static final String PANEL_MAIN = "Главное";
+    private static final String PANEL_MESSAGES = "Сообщения";
+    private static final String PANEL_EMOTES = "Эмоции";
+    private static final String PANEL_IMAGES = "Иконки юзеров";
+    private static final String PANEL_COLORS = "Цвета";
+    private static final String PANEL_HIGHLIGHT = "Подсветка";
+    private static final String PANEL_IGNORE = "Игнор";
+    private static final String PANEL_HISTORY = "История";
+    private static final String PANEL_SOUND = "Звуки";
+    private static final String PANEL_NOTIFICATIONS = "Оповещения";
+    private static final String PANEL_USERCOLORS = "Цвета пользователей";
+    private static final String PANEL_LOG = "Логи";
+    private static final String PANEL_WINDOW = "Окно";
+    private static final String PANEL_COMMANDS = "Команды";
+    private static final String PANEL_OTHER = "Другое";
+    private static final String PANEL_ADVANCED = "Расширенные";
     
     private String currentlyShown;
     
@@ -114,7 +114,7 @@ public class SettingsDialog extends JDialog implements ActionListener {
     };
 
     public SettingsDialog(final MainGui owner, final Settings settings) {
-        super(owner,"Settings",true);
+        super(owner,"Настройки",true);
         setResizable(false);
         
         settingsHelpLinkLabelListener = new LinkLabelListener() {
@@ -344,7 +344,7 @@ public class SettingsDialog extends JDialog implements ActionListener {
             JOptionPane.showMessageDialog(this, RESTART_REQUIRED_INFO, "Info", JOptionPane.INFORMATION_MESSAGE);
         }
         if (reconnectRequired) {
-            String[] options = new String[]{"Reconnect now", "Reconnect manually"};
+            String[] options = new String[]{"Переподключиться сейчас", "Переподключиться вручную"};
             int result = JOptionPane.showOptionDialog(this,
                     RECONNECT_REQUIRED_INFO,
                     "Reconect?",

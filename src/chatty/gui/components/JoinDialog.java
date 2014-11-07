@@ -27,16 +27,16 @@ public class JoinDialog extends JDialog {
     
     private final JTextField channels = new JTextField(20);
     
-    private final JButton joinButton = new JButton("Join");
-    private final JButton cancelButton = new JButton("Cancel");
+    private final JButton joinButton = new JButton("Подключиться");
+    private final JButton cancelButton = new JButton("Отмена");
     
-    private final JButton favoritesButton = new JButton("Favorites / History");
+    private final JButton favoritesButton = new JButton("Избранное / история");
     
     private boolean join = false;
     
     public JoinDialog(final MainGui owner) {
         super(owner);
-        setTitle("Join Channel");
+        setTitle("Подключиться к каналу");
         setResizable(false);
         setModal(true);
         
@@ -141,10 +141,10 @@ public class JoinDialog extends JDialog {
         boolean empty = chans.isEmpty();
         joinButton.setEnabled(!empty);
         if (chans.size() > 1) {
-            joinButton.setText("Join channels");
+            joinButton.setText("Подключиться к каналам");
         }
         else {
-            joinButton.setText("Join channel");
+            joinButton.setText("Подключиться к каналу");
         }
     }
     

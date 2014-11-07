@@ -35,7 +35,7 @@ public class AdvancedSettings extends SettingsPanel {
         
         addPanel(warning, getGbc(0));
         
-        JPanel connection = addTitledPanel("Connection", 1);
+        JPanel connection = addTitledPanel("Подключение", 1);
 
         connection.add(new JLabel("Server:"), d.makeGbc(0, 0, 1, 1, GridBagConstraints.EAST));
         connection.add(d.addSimpleStringSetting("serverDefault", 20, true), d.makeGbc(1, 0, 1, 1, GridBagConstraints.WEST));

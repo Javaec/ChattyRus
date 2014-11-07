@@ -29,13 +29,13 @@ import javax.swing.event.MenuListener;
  */
 public class MainMenu extends JMenuBar {
     
-    private final JMenu main = new JMenu("Main");
-    protected final JMenu view = new JMenu("View");
-    private final JMenu channels = new JMenu("Channels");
-    private final JMenu srl = new JMenu("SRL");
-    protected final JMenu srlStreams = new JMenu("Races with..");
-    private final JMenu extra = new JMenu("Extra");
-    private final JMenu help = new JMenu("Help");
+    private final JMenu main = new JMenu("Главное");
+    protected final JMenu view = new JMenu("Вид");
+    private final JMenu channels = new JMenu("Каналы");
+    private final JMenu srl = new JMenu("Спидран");
+    protected final JMenu srlStreams = new JMenu("Совместные спидраны..");
+    private final JMenu extra = new JMenu("Дополнительно");
+    private final JMenu help = new JMenu("Помощь");
     
     private final JMenuItem highlights;
     private final JMenuItem ignored;
@@ -44,8 +44,8 @@ public class MainMenu extends JMenuBar {
     private final ActionListener actionListener;
     
     // Set here because it is used more than once
-    private final String IGNORED_LABEL = "Ignored";
-    private final String HIGHLIGHTS_LABEL = "Highlights";
+    private final String IGNORED_LABEL = "Игрорируемые";
+    private final String HIGHLIGHTS_LABEL = "Хайлайты";
     
     /**
      * Stores whether the "Update Available!" message has been added yet, so
@@ -87,37 +87,37 @@ public class MainMenu extends JMenuBar {
         help.setMnemonic(KeyEvent.VK_H);
         
         // Main
-        addItem(main,"connect","Connect");
-        addItem(main,"disconnect","Disconnect").setEnabled(false);
+        addItem(main,"connect","Подключиться");
+        addItem(main,"disconnect","Отключиться").setEnabled(false);
         main.addSeparator();
-        setIcon(addItem(main,"settings","Settings", KeyEvent.VK_S), "preferences-system.png");
+        setIcon(addItem(main,"settings","Настройки", KeyEvent.VK_S), "preferences-system.png");
         main.addSeparator();
         addItem(main,"exit","Exit");
         
         // View
-        addCheckboxItem(view,"ontop","Always on top");
-        addCheckboxItem(view,"showJoinsParts","Show joins/parts");
+        addCheckboxItem(view,"ontop","Поверх окон");
+        addCheckboxItem(view,"showJoinsParts","Показывать joins/parts");
         view.addSeparator();
-        addItem(view,"channelInfoDialog","Channel Info", KeyEvent.VK_C);
-        addItem(view,"channelAdminDialog","Channel Admin", KeyEvent.VK_A);
+        addItem(view,"channelInfoDialog","О канале", KeyEvent.VK_C);
+        addItem(view,"channelAdminDialog","Админ канала", KeyEvent.VK_A);
         view.addSeparator();
         highlights = addItem(view,"highlightedMessages",HIGHLIGHTS_LABEL, KeyEvent.VK_H);
         ignored = addItem(view,"ignoredMessages",IGNORED_LABEL, KeyEvent.VK_I);
         view.addSeparator();
-        JMenuItem searchMenuItem = addItem(view,"search","Find text..", KeyEvent.VK_S);
+        JMenuItem searchMenuItem = addItem(view,"search","Найти текст..", KeyEvent.VK_S);
         searchMenuItem.setAccelerator(KeyStroke.getKeyStroke("ctrl F"));
         
         // Channels
-        addItem(channels,"favoritesDialog","Favorites/History", KeyEvent.VK_F);
-        JMenuItem onlineChannels = addItem(channels, "onlineChannels", "Live Channels", KeyEvent.VK_L);
+        addItem(channels,"favoritesDialog","Избранное/История", KeyEvent.VK_F);
+        JMenuItem onlineChannels = addItem(channels, "onlineChannels", "Лайв каналы", KeyEvent.VK_L);
         onlineChannels.setAccelerator(KeyStroke.getKeyStroke("ctrl L"));
-        addItem(channels,"addressbook", "Addressbook");
+        addItem(channels,"addressbook", "Адресная книга");
         channels.addSeparator();
-        JMenuItem joinChannel = addItem(channels, "joinChannel", "Join Channel", KeyEvent.VK_J);
+        JMenuItem joinChannel = addItem(channels, "joinChannel", "Подключиться к каналу", KeyEvent.VK_J);
         joinChannel.setAccelerator(KeyStroke.getKeyStroke("ctrl J"));
         
         // SRL
-        addItem(srl, "srlRaces", "Race List");
+        addItem(srl, "srlRaces", "Список гонок");
         srl.addSeparator();
         srl.add(srlStreams);
         srlStreams.addMenuListener((MenuListener)itemListener);
@@ -125,23 +125,23 @@ public class MainMenu extends JMenuBar {
         // Extra
         
         addItem(extra,"livestreamer","Livestreamer", KeyEvent.VK_L);
-        JMenuItem emoticons = addItem(extra,"emotes","Emoticons", KeyEvent.VK_E);
+        JMenuItem emoticons = addItem(extra,"emotes","Эмоции", KeyEvent.VK_E);
         emoticons.setAccelerator(KeyStroke.getKeyStroke("ctrl E"));
         extra.addSeparator();
-        addItem(extra,"followers","Followers");
-        addItem(extra,"subscribers","Subscribers");
+        addItem(extra,"followers","Фолловеры");
+        addItem(extra,"subscribers","Подписчики");
         extra.addSeparator();
-        JMenu debugOptions = new JMenu("Options");
-        addCheckboxItem(debugOptions,"simpleTitle","Simple Title");
+        JMenu debugOptions = new JMenu("Опции");
+        addCheckboxItem(debugOptions,"simpleTitle","Простой заголовок");
         extra.add(debugOptions);
         if (Chatty.DEBUG) {
-            addItem(extra,"unhandledException", "Unhandled Exception");
+            addItem(extra,"unhandledException", "Необработанное исключение");
         }
-        addItem(extra,"debug","Debug window");
+        addItem(extra,"debug","Окно отладки");
 
         // Help
-        addItem(help,"website","Website");
-        JMenuItem helpItem = addItem(help,"about","About/Help", KeyEvent.VK_H);
+        addItem(help,"website","Вебсайт");
+        JMenuItem helpItem = addItem(help,"about","О программе/Помощь", KeyEvent.VK_H);
         helpItem.setAccelerator(KeyStroke.getKeyStroke("F1"));
         setIcon(helpItem, "help-browser.png");
         
@@ -282,7 +282,7 @@ public class MainMenu extends JMenuBar {
     public void updateSrlStreams(String active, List<String> popout) {
         srlStreams.removeAll();
         if (active == null || active.isEmpty()) {
-            addItem(srlStreams, "", "No channel joined");
+            addItem(srlStreams, "", "Нет подключенных каналов");
         } else {
             addItem(srlStreams, "srlRaceActive", active);
         }

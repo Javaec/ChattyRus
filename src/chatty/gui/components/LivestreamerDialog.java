@@ -42,23 +42,23 @@ import javax.swing.text.Document;
  */
 public class LivestreamerDialog extends JDialog {
     
-    private final JButton closeButton = new JButton("Close");
+    private final JButton closeButton = new JButton("Закрыть");
     private final JTabbedPane tabs = new JTabbedPane();
     private final Window parent;
     
-    private final JCheckBox enableContextMenu = new JCheckBox("Enable context menu entry");
-    private final JCheckBox openDialog = new JCheckBox("Show dialog when opening stream");
+    private final JCheckBox enableContextMenu = new JCheckBox("Включить запись контекстного меню");
+    private final JCheckBox openDialog = new JCheckBox("Показать диалог при открытии стрима");
     private final JTextField qualities = new JTextField(20);
     
     private final JTextField commandDef = new JTextField(20);
-    private final JCheckBox useAuth = new JCheckBox("Use Authorization (Twitch Oauth Token)");
+    private final JCheckBox useAuth = new JCheckBox("Использовать авторизацию (Twitch OAuth)");
     
     private final JTextField streamInput = new JTextField(30);
-    private final JButton openStreamButton = new JButton("Open Stream");
+    private final JButton openStreamButton = new JButton("Открыть стрим");
     
-    private static final String INFO = "Livestreamer is an external program "
-            + "you have to install seperately that allows you to watch "
-            + "streams of many websites in a player like VLC. "
+    private static final String INFO = "Livestreamer это внешняя программа. "
+            + "Вы должны установить её отдельно, и сможете смотреть "
+            + "стримы с разных сайтов в плеере, как VLC. "
             + "[help-livestreamer:top More information..]";
     
     private final Settings settings;
@@ -139,7 +139,7 @@ public class LivestreamerDialog extends JDialog {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         infoPanel.add(openStreamButton, gbc);
         
-        tabs.add("Main", infoPanel);
+        tabs.add("Главное", infoPanel);
         
         ActionListener buttonAction = new ActionListener() {
 

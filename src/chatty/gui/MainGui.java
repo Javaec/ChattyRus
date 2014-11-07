@@ -1491,8 +1491,8 @@ public class MainGui extends JFrame implements Runnable {
     public Set<String> chooseFavorites(Component owner, String channel) {
         updateFavoritesDialog();
         favoritesDialog.setLocationRelativeTo(owner);
-        int result = favoritesDialog.showDialog(channel, "Use chosen channels",
-                "Use chosen channel");
+        int result = favoritesDialog.showDialog(channel, "Испоьзовать выбранные каналы",
+                "Испоьзовать выбранный канал");
         if (result == FavoritesDialog.ACTION_DONE) {
             return favoritesDialog.getChannels();
         }
@@ -2304,17 +2304,17 @@ public class MainGui extends JFrame implements Runnable {
             String stateText = "";
 
             if (state == Irc.STATE_CONNECTING) {
-                stateText = "Connecting..";
+                stateText = "Подключение..";
             } else if (state == Irc.STATE_CONNECTED) {
-                stateText = "Connecting...";
+                stateText = "Подключение...";
             } else if (state == Irc.STATE_REGISTERED) {
                 if (channelName.isEmpty()) {
-                    stateText = "Connected";
+                    stateText = "Подключен";
                 }
             } else if (state == Irc.STATE_OFFLINE) {
-                stateText = "Not connected";
+                stateText = "Не подключен";
             } else if (state == Irc.STATE_RECONNECTING) {
-                stateText = "Reconnecting..";
+                stateText = "Переподключение..";
             }
 
             String title = stateText;
@@ -2339,7 +2339,7 @@ public class MainGui extends JFrame implements Runnable {
                 }
             }
 
-            title += " - Chatty";
+            title += " - ChattyRus";
             return title;
         }
     }
@@ -2578,11 +2578,11 @@ public class MainGui extends JFrame implements Runnable {
             tokenDialog.update(username, token);
             updateConnectionDialog(null);
             if (!currentUsername.isEmpty() && !username.equals(currentUsername)) {
-                result = "Login verified and ready to connect (replaced '" +
-                        currentUsername + "' with '" + username + "').";
+                result = "Аккаунт проверен и подключен (заменен '" +
+                        currentUsername + "' на '" + username + "').";
             }
             else {
-                result = "Login verified and ready to connect.";
+                result = "Аккаунт проверен и подключен";
             }
         }
         if (changedTokenResponse) {
