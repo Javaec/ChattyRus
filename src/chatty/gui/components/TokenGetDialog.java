@@ -27,26 +27,26 @@ import javax.swing.*;
  */
 public class TokenGetDialog extends JDialog implements ItemListener, ActionListener {
     
-    private static final String INFO = "<html><body>Request new login data ([help:login ?]):<br />"
-            + "1. Open the link below<br />"
-            + "2. Grant chat access for Chatty<br />"
-            + "3. Get redirected";
+    private static final String INFO = "<html><body>Запросить данные аккаунта ([help:login ?]):<br />"
+            + "1. Открыть ссылку ниже<br />"
+            + "2. Получить доступ для Chatty<br />"
+            + "3. Вернуться";
     private final LinkLabel info;
     private final JTextField urlField = new JTextField(20);
     private final JLabel status = new JLabel();
-    private final JButton copyUrl = new JButton("Copy URL");
-    private final JButton openUrl = new JButton("Open (default browser)");
-    private final JButton close = new JButton("Close");
+    private final JButton copyUrl = new JButton("Копировать ссылку");
+    private final JButton openUrl = new JButton("Открыть (браузер по-умолчанию)");
+    private final JButton close = new JButton("Закрыть");
 
-    private final JCheckBox includeReadUserAccess = new JCheckBox("Read user info (followed streams)");
-    private final JCheckBox includeEditorAccess = new JCheckBox("Editor access (edit stream title/game)");
-    private final JCheckBox includeCommercialAccess = new JCheckBox("Allow running ads");
-    private final JCheckBox includeShowSubsAccess = new JCheckBox("Show your subscribers");
+    private final JCheckBox includeReadUserAccess = new JCheckBox("Читать инфо о юзере");
+    private final JCheckBox includeEditorAccess = new JCheckBox("Админский доступ (редактировать название стрима/игру)");
+    private final JCheckBox includeCommercialAccess = new JCheckBox("Разрешить запуск рекламы");
+    private final JCheckBox includeShowSubsAccess = new JCheckBox("Показывать подписки");
     
     private String currentUrl = TwitchClient.REQUEST_TOKEN_URL;
     
     public TokenGetDialog(MainGui owner) {
-        super(owner,"Get login data",true);
+        super(owner,"Авторизация",true);
         this.setResizable(false);
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.addWindowListener(owner.getWindowListener());
@@ -67,20 +67,20 @@ public class TokenGetDialog extends JDialog implements ItemListener, ActionListe
         // Options
         gbc = makeGridBagConstraints(0, 1, 2, 1, GridBagConstraints.WEST);
         gbc.insets = new Insets(5,5,0,5);
-        includeReadUserAccess.setToolTipText("To get notified when streams you "
+        includeReadUserAccess.setToolTipText("Чтобы получить уведомление "
                 + "follow go online.");
         add(includeReadUserAccess, gbc);
         gbc = makeGridBagConstraints(0, 2, 2, 1, GridBagConstraints.WEST);
         gbc.insets = new Insets(0,5,0,5);
-        includeEditorAccess.setToolTipText("To be able to edit your channel's title and game.");
+        includeEditorAccess.setToolTipText("Чтобы иметь возможность редактировать название вашего канала и игру.");
         add(includeEditorAccess,gbc);
         gbc = makeGridBagConstraints(0,3,2,1,GridBagConstraints.WEST);
         gbc.insets = new Insets(0,5,0,5);
-        includeCommercialAccess.setToolTipText("To be able to run commercials on your stream.");
+        includeCommercialAccess.setToolTipText("Для того, чтобы запустить рекламу на вашем стриме.");
         add(includeCommercialAccess,gbc);
         gbc = makeGridBagConstraints(0,4,2,1,GridBagConstraints.WEST);
         gbc.insets = new Insets(0,5,5,5);
-        includeShowSubsAccess.setToolTipText("To be able to show the list of your subscribers.");
+        includeShowSubsAccess.setToolTipText("Для того, чтобы показать список ваших подписчиков.");
         add(includeShowSubsAccess,gbc);
         
         // URL Display and Buttons
@@ -123,22 +123,22 @@ public class TokenGetDialog extends JDialog implements ItemListener, ActionListe
         openUrl.setEnabled(false);
         copyUrl.setEnabled(false);
         urlField.setEnabled(false);
-        setStatus("Please wait..");
+        setStatus("Ждите..");
     }
     
     public void ready() {
         openUrl.setEnabled(true);
         copyUrl.setEnabled(true);
         urlField.setEnabled(true);
-        setStatus("Ready.");
+        setStatus("Готово.");
     }
     
     public void error(String errorMessage) {
-        setStatus("Error: "+errorMessage);
+        setStatus("Ошибка: "+errorMessage);
     }
     
     public void tokenReceived() {
-        setStatus("Token received.. completing..");
+        setStatus("Ключ получен.. зевершение..");
     }
     
     private void setStatus(String text) {
