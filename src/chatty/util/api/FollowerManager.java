@@ -32,7 +32,8 @@ public class FollowerManager {
 	/**
 	 * The minimum delay between requests per channel.
 	 */
-	private static final int REQUEST_DELAY = 60;
+	//private static final int REQUEST_DELAY = 60;
+	private static final int REQUEST_DELAY = 10;
 
 	/**
 	 * Save FollowerInfo (containing Followers and some meta information) for
@@ -117,22 +118,35 @@ public class FollowerManager {
 	 * 
 	 * @param stream The name of the stream to request the data for
 	 */
-	protected void request(String stream) {
-		if (stream == null || stream.isEmpty()) {
+	protected void request(String stream) 
+	{
+		if (stream == null || stream.isEmpty()) 
+		{
 			return;
 		}
+
 		stream = stream.toLowerCase(Locale.ENGLISH);
 		FollowerInfo cachedInfo = cached.get(stream);
-		if (cachedInfo == null || checkTimePassed(cachedInfo)) {
-			if (type == Type.FOLLOWERS) {
+
+		if (cachedInfo == null || checkTimePassed(cachedInfo)) 
+		{
+			if (type == Type.FOLLOWERS) 
+			{
 				api.requestFollowers(stream);
-			} else if (type == Type.SUBSCRIBERS) {
+			} 
+			else if (type == Type.SUBSCRIBERS) 
+			{
 				api.requestSubscribers(stream);
 			}
-		} else {
-			if (type == Type.FOLLOWERS) {
+		} 
+		else 
+		{
+			if (type == Type.FOLLOWERS) 
+			{
 				listener.receivedFollowers(cachedInfo);
-			} else if (type == Type.SUBSCRIBERS) {
+			} 
+			else if (type == Type.SUBSCRIBERS) 
+			{
 				listener.receivedSubscribers(cachedInfo);
 			}
 		}
@@ -149,12 +163,16 @@ public class FollowerManager {
 	 */
 	private boolean checkTimePassed(FollowerInfo info) {
 		Integer errorCount = errors.get(info.stream);
-		if (errorCount == null) {
+		if (errorCount == null) 
+		{
 			errorCount = 0;
 		}
-		if (System.currentTimeMillis() - info.time > REQUEST_DELAY*1000+(REQUEST_DELAY*1000*(errorCount)/2)) {
+
+		if (System.currentTimeMillis() - info.time > REQUEST_DELAY*1000+(REQUEST_DELAY*1000*(errorCount)/2)) 
+		{
 			return true;
 		}
+
 		return false;
 	}
 
@@ -168,15 +186,23 @@ public class FollowerManager {
 	 */
 	protected void received(int responseCode, String stream, String json) {
 		FollowerInfo result = parseFollowers(stream, json);
+
 		if (result != null) {
 			noError(stream);
 			cached.put(stream, result);
-			if (type == Type.FOLLOWERS) {
+			if (type == Type.FOLLOWERS) 
+			{
+				lastFolInfo = result;
+
 				listener.receivedFollowers(result);
 				if (hasNewFollowers(result.followers)) {
 					listener.newFollowers(result);
 				}
-			} else if (type == Type.SUBSCRIBERS) {
+			} 
+			else if (type == Type.SUBSCRIBERS) 
+			{
+				lastSubInfo = result;
+
 				listener.receivedSubscribers(result);
 			}
 			requested.add(stream);
