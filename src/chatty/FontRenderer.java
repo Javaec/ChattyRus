@@ -37,7 +37,9 @@ public class FontRenderer {
 	public BufferedImage createImage(String label)
 	{
 		
-		BufferedImage bi = new BufferedImage( (int)((imagesource.getWidth()/12)*str.length()* 0.58)+30, imagesource.getHeight()/4, BufferedImage.TYPE_INT_ARGB);
+		BufferedImage bi;
+		
+		bi = new BufferedImage( (int)((imagesource.getWidth()/12)*str.length()* 0.58)+30, imagesource.getHeight()/4, BufferedImage.TYPE_INT_ARGB);
 		
 
 		Graphics2D g;

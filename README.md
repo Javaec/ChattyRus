@@ -40,7 +40,7 @@ ChattyRus наследует MIT лицензию от Chatty.
 Запуск
 =========
 
-- Запускайте \release\ChattyRus.jar (открыть с помощью Java(TM))
+- Запускайте \release\run.bat
 
 - - Опционально: вы можете запустить ChattyRus с помощью run_with_console.bat (запуск с консолью)
 
