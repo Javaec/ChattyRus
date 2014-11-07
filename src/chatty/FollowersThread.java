@@ -188,22 +188,22 @@ public class FollowersThread extends Thread
 
 				foll_diff = foll_last - foll_start;
 
-				writeFileAsString(System.getProperty("user.dir")+"\\" + stream + "_fol_total.txt", count);
+				writeFileAsString(System.getProperty("user.dir")+"\\" + "output\\"  + stream + "_fol_total.txt", count);
 
-				writeFileAsString(System.getProperty("user.dir")+"\\" + stream + "_fol_fromstart.txt", Integer.toString(foll_diff));
+				writeFileAsString(System.getProperty("user.dir")+"\\" + "output\\"  + stream + "_fol_fromstart.txt", Integer.toString(foll_diff));
 
-				writeFileAsString(System.getProperty("user.dir")+"\\" + stream + "_fol_last.txt", last);
+				writeFileAsString(System.getProperty("user.dir")+"\\" + "output\\"  + stream + "_fol_last.txt", last);
 
-				writeFileAsString(System.getProperty("user.dir")+"\\" + stream + "_fol_lasts.txt", sb.toString());
-				writeFileAsString(System.getProperty("user.dir")+"\\" + stream + "_fol_lasts100.txt", sb100.toString());
+				writeFileAsString(System.getProperty("user.dir")+"\\" + "output\\"  + stream + "_fol_lasts.txt", sb.toString());
+				writeFileAsString(System.getProperty("user.dir")+"\\" + "output\\"  + stream + "_fol_lasts100.txt", sb100.toString());
 
 				String bytime = Stats.makeDayStats(FollowerManager.lastFolInfo);
 
-				writeFileAsString(System.getProperty("user.dir")+"\\" + stream + "_fol_day.txt", bytime);
+				writeFileAsString(System.getProperty("user.dir")+"\\" + "output\\"  + stream + "_fol_day.txt", bytime);
 
-				fr.display("Last Fol:"+last, System.getProperty("user.dir")+"\\" + stream + "_fol_last.png");
+				fr.display("Last Fol:"+last, System.getProperty("user.dir")+"\\" + "output\\"  + stream + "_fol_last.png");
 
-				fr.display("Fol today:"+bytime, System.getProperty("user.dir")+"\\" + stream + "_fol_day.png");
+				fr.display("Fol today:"+bytime, System.getProperty("user.dir")+"\\" + "output\\"  + stream + "_fol_day.png");
 			}
 		}
 
@@ -263,23 +263,23 @@ public class FollowersThread extends Thread
 
 				subs_diff = subs_last - subs_start + offset;
 
-				writeFileAsString(System.getProperty("user.dir")+"\\" + stream + "_sub_total.txt", count);
+				writeFileAsString(System.getProperty("user.dir")+"\\" + "output\\" + stream + "_sub_total.txt", count);
 
-				writeFileAsString(System.getProperty("user.dir")+"\\" + stream + "_sub_fromstart.txt", Integer.toString(subs_diff));
+				writeFileAsString(System.getProperty("user.dir")+"\\" + "output\\"  + stream + "_sub_fromstart.txt", Integer.toString(subs_diff));
 
-				writeFileAsString(System.getProperty("user.dir")+"\\" + stream + "_sub_last.txt", last);
+				writeFileAsString(System.getProperty("user.dir")+"\\" + "output\\"  + stream + "_sub_last.txt", last);
 
-				writeFileAsString(System.getProperty("user.dir")+"\\" + stream + "_sub_lasts.txt", sb.toString());
+				writeFileAsString(System.getProperty("user.dir")+"\\" + "output\\"  + stream + "_sub_lasts.txt", sb.toString());
 
-				writeFileAsString(System.getProperty("user.dir")+"\\" + stream + "_sub_lasts100.txt", sb100.toString());
+				writeFileAsString(System.getProperty("user.dir")+"\\" + "output\\"  + stream + "_sub_lasts100.txt", sb100.toString());
 
 				String bytime = Stats.makeDayStats(FollowerManager.lastSubInfo);
 
-				writeFileAsString(System.getProperty("user.dir")+"\\" + stream + "_sub_day.txt", bytime);
+				writeFileAsString(System.getProperty("user.dir")+"\\" + "output\\"  + stream + "_sub_day.txt", bytime);
 
-				fr.display(sublasttext+last, System.getProperty("user.dir")+"\\" + stream + "_sub_last.png");
+				fr.display(sublasttext+last, System.getProperty("user.dir")+"\\" + "output\\"  + stream + "_sub_last.png");
 
-				fr.display(subcounttext+bytime, System.getProperty("user.dir")+"\\" + stream + "_sub_day.png");
+				fr.display(subcounttext+bytime, System.getProperty("user.dir")+"\\" + "output\\"  + stream + "_sub_day.png");
 
 				//System.out.println("DS : " + Stats.makeDayStats(FollowerManager.lastFolInfo));
 			}
