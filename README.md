@@ -30,11 +30,26 @@ ChattyRus наследует MIT лицензию от Chatty.
 
 Распакуйте
 
-В папке /release вы найдете всё, что необходимо:
+В папке \release вы найдете всё, что необходимо:
 
 - config.txt
 - font2.png
 - run_with_console.bat
+
+
+Запуск
+=========
+
+- \release\run_with_console.bat - запускайте
+- Если появится окно с новостями - можете закрыть его
+- Create login...
+- Request login data
+- Open (in default browser)
+- Открылась страница, браузера, авторизация пройдена
+- В Chatty жмите Done
+
+- Channel: название интересующего вас канала
+- Connect
 
 
 config.txt
