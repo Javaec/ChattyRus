@@ -1429,10 +1429,12 @@ public class MainGui extends JFrame implements Runnable {
         SwingUtilities.invokeLater(new Runnable() {
 
             @Override
-            public void run() {
-                if (forced || !client.settings.getString("currentVersion").equals(Chatty.VERSION)) {
+            public void run() 
+            {
+                if (forced || !client.settings.getString("currentVersion").equals(Chatty.VERSION)) 
+                {
                     client.settings.setString("currentVersion", Chatty.VERSION);
-                    openHelp("help-releases.html", "latest");
+                    //openHelp("help-releases.html", "latest");
                 }
             }
         });
